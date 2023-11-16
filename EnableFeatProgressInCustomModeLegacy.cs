@@ -6,7 +6,7 @@ using System.Collections;
 using HarmonyLib;
 using Il2Cpp;
 
-namespace EnableFeatProgressInCustomMode
+namespace EnableFeatProgressInCustomModeLegacy
 {
 	public class Mod : MelonMod
 	{
@@ -19,7 +19,7 @@ namespace EnableFeatProgressInCustomMode
 	internal static class Patches 
 	{
 
-		[HarmonyPatch(typeof(Feat), "ShouldBlockIncrement")]
+		[HarmonyPatch(typeof(Feat), nameof(Feat.ShouldBlockIncrement))]
 		private static class NeverBlockIncrement 
 		{
 			private static void Postfix(ref bool __result) 
